@@ -33,21 +33,22 @@
             
 
     <button class="btn btn-primary">
-    Create Task
+    Edit Task
     </button>
  </form>
+ 
 </div>
 </div>
 </main>
-
 <form action="{% url "completarTarea" tarea.id %}" method="GET">
-    {% csrf_token %}
-<button>Completar tarea</button>
+  {% csrf_token %}
+<button class="btn btn-success">Completed Task</button>
 </form>
 
 
 <form action="{% url "eliminarTarea" tarea.id %}" method="GET">
-    {% csrf_token %}
-<button>Eliminar tarea</button>
+  {% csrf_token %}
+<button class="btn btn-danger">Remove Task</button>
 </form>
+
 {% endblock%}

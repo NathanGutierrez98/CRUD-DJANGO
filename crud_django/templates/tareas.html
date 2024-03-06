@@ -34,7 +34,7 @@
 <td><p>{{tarea.usuario}}</p></td>
 <td><p>{{tarea.fecha_creacion}}</p></td>
 <td><input type="checkbox" {{ tarea.urgente |yesno:"checked," }}  onclick="return false"></input></td>
-<td><a href="{% url 'detalle_tarea' tarea.id %}" > Details ... </a></td>
+<td><a href="../detalle_tarea/{{tarea.id}} " > Details ... </a></td>
 <td><a href="../eliminarTarea/{{tarea.id}}" method="POST">Remove Task</a></td>
 </tr>
 
