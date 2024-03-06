@@ -7,6 +7,7 @@ set -o errexit
 pip install django
 pip install dj-database-url
 pip install gunicorn
+ip install psycopg2
 # Convert static asset files
 python manage.py collectstatic --no-input
 
