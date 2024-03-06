@@ -40,7 +40,7 @@
 </div>
 </main>
 
-<form action="{% url "completarTarea" tarea.id %}" method="POST">
+<form action="{% url "completarTarea" tarea.id %}" method="GET">
     {% csrf_token %}
 <button>Completar tarea</button>
 </form>

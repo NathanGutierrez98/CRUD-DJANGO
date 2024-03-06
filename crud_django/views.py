@@ -74,7 +74,8 @@ def detalleTarea(request, idTarea):
             return render(request, "detalle_tarea.html", {'tarea' : tarea, 'form': formularioEdicion, "error": "Error editing tasks\n put correct values"})
 @login_required(login_url='iniciarSesion', redirect_field_name=None)            
 def completarTarea(request, idTarea):
-    if request.method == 'POST':
+    
+    if request.method == 'GET':
         tarea = get_object_or_404(Tarea,pk=idTarea,usuario=request.user)
         tarea.fecha_completado = timezone.now()
         tarea.save()
