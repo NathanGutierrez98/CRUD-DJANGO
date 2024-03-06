@@ -1,0 +1,47 @@
+{% extends 'raiz.html' %}
+
+{% block content %}
+
+
+<a href="{% url 'crearTarea' %}" method="POST">Create Task</a>
+
+{% if btnTareas == 'Tareas completadas' %}
+<a href="{% url 'tareasFinalizadas' %}" method="POST">Completed Tasks</a>
+<h1>Completed Tasks</h1>
+{% else %}
+<a href="{% url 'tareas' %}" method="POST">Pending tasks</a>
+<h1>Pending Tasks</h1>
+{% endif %}
+
+<table class="table table-striped table-bordered table-hover align-middle text-center">
+ <thead class="thead-dark">
+    <tr>
+<th>Title</th>
+<th>Description</th>
+<th>User</th>
+<th>Creation Date</th>
+<th>Urgent</h1></th>
+<th></th>
+<th></th>
+    </tr>
+    </thead>
+
+
+{% for tarea in tareas  %}
+<tr>
+<td><p>{{tarea.titulo}}</p></td>
+<td><p>{{tarea.descripcion}}</p> </td>
+<td><p>{{tarea.usuario}}</p></td>
+<td><p>{{tarea.fecha_creacion}}</p></td>
+<td><input type="checkbox" {{ tarea.urgente |yesno:"checked," }}  onclick="return false"></input></td>
+<td><a href="{% url 'detalle_tarea' tarea.id %}" > Details ... </a></td>
+<td><a href="../eliminarTarea/{{tarea.id}}" method="POST">Remove Task</a></td>
+</tr>
+
+
+
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
+
